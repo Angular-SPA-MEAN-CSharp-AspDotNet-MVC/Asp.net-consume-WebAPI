@@ -32,18 +32,18 @@
     <form id="form1" runat="server">
 
         <div>
-            Enter the GET API URI here, or use the default value
+            Please input the API URI here, or use the default value
         </div>
-        <asp:TextBox ID="ApiTextBox" value="http://localhost:21884/api/Emerson" runat="server" Width="334px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;<asp:Button ID="getBtn" runat="server" OnClick="getBtn_Click" Text="GET" />
+        <asp:TextBox ID="ApiTextBox" value="http://localhost:21884/api/Emerson" runat="server" Width="357px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;<asp:Button ID="getBtn" runat="server" OnClick="getBtn_Click" Text="GET" Width="53px" />
         <br />
         <br />
-        <asp:DropDownList ID="DropDownList1" runat="server" Width="147px" AutoPostBack = "true" OnSelectedIndexChanged="OnSelectedIndexChanged">
+        <asp:DropDownList ID="DropDownList1" runat="server" Width="363px" AutoPostBack = "true" OnSelectedIndexChanged="OnSelectedIndexChanged">
         </asp:DropDownList>
 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-        <asp:Button ID="postBtn" runat="server" OnClick="postBtn_Click" Text="POST" />
+         &nbsp;&nbsp;&nbsp;<asp:Button ID="postBtn" runat="server" OnClick="postBtn_Click" Text="POST" />
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         <!-- ModalPopupExtender -->
         <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="Label1"

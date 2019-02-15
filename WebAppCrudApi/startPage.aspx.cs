@@ -55,37 +55,7 @@ namespace WebAppCrudApi
 
         protected void getBtn_Click(object sender, EventArgs e)
         {
-            using (var httpClient = new HttpClient())
-            {
-                string url;
-
-                // GET API URI
-                if (ApiTextBox.Text != "")
-                {
-                    url = ApiTextBox.Text;
-                }
-                else
-                {
-                    url = "http://localhost:21884/api/Emerson";
-                }
-
-                var response = httpClient.GetStringAsync(new Uri(url)).Result; // Calling GET API
-
-                // Process GET API response data
-                var json = new JavaScriptSerializer();
-                var serializer = new JavaScriptSerializer();
-                var deserializedResult = serializer.Deserialize<List<EmersonJd>>(response);
-
-
-                // Dynamically add the dropdown items from the GET API result
-                DropDownList1.Items.Clear();// clear the previous dropdown items
-                for (var i = 0; i < deserializedResult.Count; i++)
-                {
-                    DropDownList1.Items.Add(new ListItem(deserializedResult[i].dayWk, deserializedResult[i].dateObj.timeVal.ToString()));
-                }
-
-            }
-
+            updateOrInitDropDown();
         }
 
         protected void postBtn_Click(object sender, EventArgs e)
@@ -135,8 +105,50 @@ namespace WebAppCrudApi
 
             var result = client.PostAsync(url, byteContent).Result;
 
+            updateOrInitDropDown();
         }
-        
+
+        // This function is used to load the date for the dropDown, if no data, the dropDown will grab data from API
+        private void updateOrInitDropDown()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                string url;
+
+                // GET API URI
+                if (ApiTextBox.Text != "")
+                {
+                    url = ApiTextBox.Text;
+                }
+                else
+                {
+                    url = "http://localhost:21884/api/Emerson";
+                }
+
+                try
+                {
+                    var response = httpClient.GetStringAsync(new Uri(url)).Result; // Calling GET API
+
+                    // Process GET API response data
+                    var json = new JavaScriptSerializer();
+                    var serializer = new JavaScriptSerializer();
+                    var deserializedResult = serializer.Deserialize<List<EmersonJd>>(response);
+
+                    // Dynamically add the dropdown items from the GET API result
+                    DropDownList1.Items.Clear();// clear the previous dropdown items
+                    for (var i = 0; i < deserializedResult.Count; i++)
+                    {
+                        DropDownList1.Items.Add(new ListItem(deserializedResult[i].dayWk, deserializedResult[i].dateObj.timeVal.ToString()));
+                    }
+                }
+                catch // Handle all except. ToDo
+                {
+                    // Some error cases:
+                    // Either the APIs are not set up, or the API can not handle
+                }
+
+            }
+        }
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
