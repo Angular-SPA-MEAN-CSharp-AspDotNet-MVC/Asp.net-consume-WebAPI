@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.28531.58
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppCrudApi", "WebAppCrudApi\WebAppCrudApi.csproj", "{B38150CA-47AA-43F3-BC6E-5548907C002D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB1057A1-A9F3-4038-BA6E-B51FD32401A5} = {CB1057A1-A9F3-4038-BA6E-B51FD32401A5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalWebApi", "InternalWebApi\InternalWebApi.csproj", "{CB1057A1-A9F3-4038-BA6E-B51FD32401A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{B38150CA-47AA-43F3-BC6E-5548907C002D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38150CA-47AA-43F3-BC6E-5548907C002D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38150CA-47AA-43F3-BC6E-5548907C002D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1057A1-A9F3-4038-BA6E-B51FD32401A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1057A1-A9F3-4038-BA6E-B51FD32401A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1057A1-A9F3-4038-BA6E-B51FD32401A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1057A1-A9F3-4038-BA6E-B51FD32401A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
